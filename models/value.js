@@ -1,19 +1,16 @@
 var mongoose = require('mongoose');
 
-var FDDSchema = mongoose.Schema({
-  detectionID: {
-    type: String,
-    required: true,
-  },
-  time: {
-    type: Date,
-    required: true,
-  },
-  data: {
-    type: Array,
-    required: true,
-  }
-});
+var ValueSchema = mongoose.Schema({
+  detectionID: {type: String, required: true},
+  var_names: [],
+  var_data: [{
+    v1:{type:String}, 
+    v2:{type:Number}, 
+    v3:{type:Number}, 
+    v4:{type:Number}, 
+    v5:{type:Number}
+  }]
+  });
 
-var FDDresult = mongoose.model('result', FDDSchema);
-module.exports = FDDresult;
+var RAWvalue = mongoose.model('value', ValueSchema);
+module.exports = RAWvalue;
