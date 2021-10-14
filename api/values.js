@@ -24,15 +24,15 @@ router.get('/',
 );
 
 // Show
-router.get('/:id',
+router.get('/:detectionID',
   function(req, res, next){
-    RAWvalue.findOne({id:req.params.detectionID})
+    RAWvalue.findOne({detectionID:req.params.detectionID})
     .exec(function(err, value){
       if(err) {
         res.status(500);
         res.json({success:false, message:err});
       }
-      else if(!result){
+      else if(!value){
         res.json({success:false, message:"RAW DATA not found"});
       }
       else {
@@ -62,12 +62,12 @@ router.post('/',
 router.delete('/:id',
   function(req, res, next){
     RAWvalue.findOneAndRemove({id:req.params.detectionID})
-    .exec(function(err, result){
+    .exec(function(err, value){
       if(err) {
         res.status(500);
         res.json({success:false, message:err});
       }
-      else if(!result){
+      else if(!value){
         res.json({success:false, message:"RAW DATA not found"});
       }
       else {

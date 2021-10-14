@@ -29,6 +29,7 @@ app.use(function (req, res, next) {
 
 // API
 app.use('/api/results', require('./api/results'));
+app.use('/api/values', require('./api/values'));
 
 // Port setting
 var port = 3000;

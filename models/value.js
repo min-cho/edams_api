@@ -4,7 +4,7 @@ var ValueSchema = mongoose.Schema({
   detectionID: {type: String, required: true},
   var_names: [],
   var_data: [{
-    v1:{type:String}, 
+    v1:{type:Date}, 
     v2:{type:Number}, 
     v3:{type:Number}, 
     v4:{type:Number}, 
