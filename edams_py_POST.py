@@ -54,40 +54,6 @@ data["var_data"]    = data_raw_dict
 data_json = json.dumps(data, indent="\t")
 
 
-#%% TEST : json for test API
-
-#test =  {"detectionID":"F210223F80012",
-#"var_names" : ["time", "HW flowrate (kg/s)", "inlet temp (C)", "outlet temp (C)", "boiler gas (J/min)" ],
-#"var_data": [{ "v1": '01/01 00:46:00' , "v2": 0.24, "v3": 53.8, "v4": 60, "v5": 480905},
-#             { "v1": '01/01 01:01:00' , "v2": 0.28, "v3": 53.6, "v4": 60, "v5": 567949},
-#             { "v1": '01/01 01:16:00' , "v2": 0.25, "v3": 53.3, "v4": 60, "v5": 714065}]
-#}
-
-#t = json.dumps(test, indent="\t")
-
-#qq=test["var_data"]
-
-#%% PLAN B : POST every 15min
- 
-### Define the Columns
-
-#data = pd.DataFrame({"time":[],
-#                     "Hot Water Inlet Mass Flow Rate [kg/s]":[],
-#                     "Hot Water Inlet Temperature[C]":[],
-#                     "Hot water Outlet Temperature[C]":[],
-#                     "Boiler Gas Energy [J]":[],
-#                     "detectionID":[]
-#                     })
-
-#
-#data_raw.columns = data.columns
-#data = pd.concat([data, data_raw], axis=0, ignore_index=True)
-
-#for stamp in data.index:
-#    data_to_post = data.iloc[stamp].to_json(orient = "columns")
-#    response = requests.post(url, json=data_to_post, headers=Header)
-
-
 #%% API POST
 
 ### API Access Adress
@@ -112,9 +78,3 @@ url = 'http://localhost:3000/api/values'
 Header = {'Content-Type':'application/json; charset=utf-8'}
 response = requests.get(url,headers=Header)
 print(response.text)
-
-
-#%% CSV sampling
-data = pd.read_csv("boiler_normal_full.csv")
-data_sample = data.iloc[::15]
-data_sample.to_csv("sampled_boiler_normal.csv", index=False)
