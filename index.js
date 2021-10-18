@@ -34,8 +34,9 @@ app.use('/api/values', require('./api/values'));
 
 // Heroku Setting
 app.get('/', function(req, res){
-  res.send('Welcome to [EDAM-S] provided by [MRPLAN]. You can use the REST API through this domain');
+  res.send('Welcome to [EDAM-S] provided by [MRPLAN]. You can use the REST API through this domain')
 });
+app.listen(5000);
 
 // Port setting
 //var port = 3000;
