@@ -59,9 +59,9 @@ router.post('/',
 );
 
 // Destroy
-router.delete('/:id',
+router.delete('/:detectionID',
   function(req, res, next){
-    RAWvalue.findOneAndRemove({id:req.params.detectionID})
+    RAWvalue.findOneAndRemove({detectionID:req.params.detectionID})
     .exec(function(err, value){
       if(err) {
         res.status(500);
