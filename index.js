@@ -3,7 +3,7 @@ var app        = express();
 var path       = require('path');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 // Database
 mongoose.Promise = global.Promise;
