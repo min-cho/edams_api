@@ -24,9 +24,9 @@ router.get('/',
 );
 
 // Show
-router.get('/:id',
+router.get('/:detectionID',
   function(req, res, next){
-    FDDresult.findOne({id:req.params.id})
+    FDDresult.findOne({detectionID:req.params.detectionID})
     .exec(function(err, result){
       if(err) {
         res.status(500);
@@ -58,29 +58,11 @@ router.post('/',
   }
 );
 
-// Update
-router.put('/:id',
-  function(req, res, next){
-    FDDresult.findOneAndUpdate({id:req.params.id}, req.body)
-    .exec(function(err, result){
-      if(err) {
-        res.status(500);
-        res.json({success:false, message:err});
-      }
-      else if(!result){
-        res.json({success:false, message:"FDD result not found"});
-      }
-      else {
-        res.json({success:true});
-      }
-    });
-  }
-);
 
 // Destroy
-router.delete('/:id',
+router.delete('/:detectionID',
   function(req, res, next){
-    FDDresult.findOneAndRemove({id:req.params.id})
+    FDDresult.findOneAndRemove({detectionID:req.params.detectionID})
     .exec(function(err, result){
       if(err) {
         res.status(500);
