@@ -31,8 +31,12 @@ app.use(function (req, res, next) {
 app.use('/api/results', require('./api/results'));
 app.use('/api/values', require('./api/values'));
 
+// Heroku Setting
+const port = process.env.PORT || 3000;
+app.listen(port,() => console.log (' Welcome to EDAM-S via port ${port}!'))
+
 // Port setting
-var port = 3000;
-app.listen(port, function(){
-  console.log('server on! http://localhost:'+port);
-});
+//var port = 3000;
+//app.listen(port, function(){
+//  console.log('server on! http://localhost:'+port);
+//});
