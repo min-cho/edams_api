@@ -3,6 +3,7 @@ var app        = express();
 var path       = require('path');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
+const PORT = process.env.PORT || 5000;
 
 // Database
 mongoose.Promise = global.Promise;
@@ -32,9 +33,8 @@ app.use('/api/results', require('./api/results'));
 app.use('/api/values', require('./api/values'));
 
 // Heroku Setting
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, function(){
-  console.log(' Welcome to EDAM-S via Heroku');
+app.get('/', function(req, res){
+  res.send('Welcome to [EDAM-S] provided by [MRPLAN]. You can use the REST API through this domain');
 });
 
 // Port setting
