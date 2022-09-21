@@ -6,7 +6,7 @@ var FDDSchema = mongoose.Schema({
     required: true,
   },
   date: {
-    type: Date,
+    type: String,
     required: true,
   },
   buildingID: {
